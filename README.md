@@ -5,7 +5,7 @@
 - [Introductie](#introductie)
 - [Server Side Applicatie](#server-side-applicatie)
 
-## Installatie <a name="installatie"></a>
+## Installatie
 
 Installeer deze repository: 
 ```
