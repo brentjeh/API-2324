@@ -4,6 +4,7 @@
 - [Inhoudsopgave](#inhoudsopgave)
 - [Introductie](#introductie)
 - [Server Side Applicatie](#server-side-applicatie)
+- [Fetchen van Data](#fetchen-van-data)
 
 ## Installatie
 
@@ -88,3 +89,6 @@ app.get('/about', (req, res) => {
     res.render('about')
 })
 ```
+
+## Fetchen van Data
+
