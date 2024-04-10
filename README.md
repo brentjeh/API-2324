@@ -73,3 +73,18 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
 ```
+
+Vervolgens ben ik voor een manier gaan zoeken hoe ik de bestanden in de 'views' map ging weergeven. Dit heb ik gedaan aan de hand van de volgende code:
+
+```js
+app.set('views', './views')
+app.set('view engine', 'ejs')
+
+app.get('', (req, res) => {
+    res.render('index')
+})
+
+app.get('/about', (req, res) => {
+    res.render('about')
+})
+```
