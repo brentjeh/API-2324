@@ -1,7 +1,26 @@
 # API READ.ME
 
-## Inhoudsopgave
+## Inhoudsopgave <a name="inhouds-opgave"></a>
+- [Inhoudsopgave](#inhoudsopgave)
 - [Introductie](#introductie)
+- [Server Side Applicatie](#server-side-applicatie)
+
+## Installatie <a name="installatie"></a>
+
+Installeer deze repository: 
+```
+Git clone https://github.com/brentjeh/progressive-web-apps-2223
+```
+
+Om Node modules te installeren:
+```
+npm install
+```
+
+Om de applicatie te starten:
+```
+npm run dev
+```
 
 ## Introductie
 In de aankomende weken ga ik me bezig houden met het bouwen van webapplicaties die niet alleen functioneel zijn, maar ook leuk zijn om te gebruiken. Ik ga aan de slag met het maken van een server-side gerenderde applicatie die echt de aandacht trekt van de gebruikers.
