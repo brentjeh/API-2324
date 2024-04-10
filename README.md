@@ -92,3 +92,16 @@ app.get('/about', (req, res) => {
 
 ## Fetchen van Data
 
+Zoals ik eerder heb benoemd heb ik het fetchen van de data met Axios gedaan. 
+
+```js
+app.get('/artworks', async (req, res) => {
+        try {
+            const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}`);
+            const artworks = response.data.artObjects;
+            res.render('overview', { artworks }); // Geef de kunstwerken door aan de weergavesjabloon
+        } catch (error) {
+            res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van de kunstwerken' });
+        }
+    });  
+```
