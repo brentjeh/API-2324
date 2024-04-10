@@ -1,7 +1,6 @@
 # API READ.ME
 
 ## Inhoudsopgave
-
 - [Introductie](#introductie)
 
 ## Introductie
