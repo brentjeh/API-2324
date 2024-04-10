@@ -48,4 +48,8 @@ Dit heeft een package-lock.json bestand en een node_modules mapje voor me aangem
 npm install nodemon
 ```
 
-Vervolgens ben ik een 'public' mapje gaan maken, waarin ik de JavaScript, CSS en images plaats. Daarnaast heb ik ook een 'views' mapje aangemaakt, waarin ik de pagina's van de applicatie heb gezet. Hierin staan dus de overzichtspagina en de detailpagina. 
+Vervolgens ben ik een 'public' mapje gaan maken, waarin ik de JavaScript, CSS en images plaats. Daarnaast heb ik ook een 'views' mapje aangemaakt, waarin ik de pagina's van de applicatie heb gezet. Hierin staan dus de overzichtspagina en de detailpagina. Om nodemon te laten werken, heb ik in het package.json bestand een nieuwe regel code toegevoegd, die me helpt
+
+```json
+"start": "nodemon app.js"
+```
