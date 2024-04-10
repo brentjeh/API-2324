@@ -54,4 +54,15 @@ Vervolgens ben ik een 'public' mapje gaan maken, waarin ik de JavaScript, CSS en
 "start": "nodemon app.js"
 ```
 
-Vervolgens ben ik in dit 'app.js' bestand Express en Axios (een veelgebruikte HTTP-clientbibliotheek voor het maken van HTTP-verzoeken vanuit Node.js- en browseromgevingen) gaan importeren en heb ik een port opgezet waarnaar Express naar moet luisteren voor inkomende verzoeken.
+Vervolgens ben ik in dit 'app.js' bestand Express en Axios (een veelgebruikte HTTP-clientbibliotheek voor het maken van HTTP-verzoeken vanuit Node.js- en browseromgevingen) gaan importeren en heb ik een port opgezet waarnaar Express naar moet luisteren voor inkomende verzoeken. 
+
+```js
+const express = require('express')
+const app = express()
+const axios = require('axios')
+const port = 3000
+
+app.listen(port, () => console.info(`Luisterende op port ${port}`))
+```
+
+Daaronder ben ik een aantal statische bestanden gaan toevoegen. Dit zijn mijn JavaScript bestand, CSS bestand en de foto's die in het project wil toevoegen. 
