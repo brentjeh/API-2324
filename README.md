@@ -3,7 +3,7 @@
 ## Inhoudsopgave <a name="inhouds-opgave"></a>
 - [Inhoudsopgave](#inhoudsopgave)
 - [Introductie](#introductie)
-- [Server Side Applicatie](#server-side-applicatie)
+- [Server Side Applicatie]
 
 ## Installatie
 
