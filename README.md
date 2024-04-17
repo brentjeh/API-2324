@@ -92,7 +92,7 @@ app.get('/about', (req, res) => {
 
 ## Fetchen van Data
 
-Zoals ik eerder heb benoemd heb ik het fetchen van de data met Axios gedaan. 
+Zoals ik eerder heb benoemd heb ik het fetchen van de data met Axios gedaan. Ik heb 
 
 ```js
 app.get('/artworks', async (req, res) => {
@@ -105,3 +105,4 @@ app.get('/artworks', async (req, res) => {
         }
     });  
 ```
+
