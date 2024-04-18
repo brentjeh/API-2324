@@ -124,9 +124,9 @@ Dit blok code maakt dus een zoekverzoek naar de Rijksmuseum API op basis van de 
 app.get('/search', async (req, res) => {
     try {
         const title = req.query.title; // Haal de zoekterm op uit de query
-        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&q=${title}&type=schilderij`); // Voeg '&type=schilderij' toe om alleen schilderijen te zoeken
+        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&q=${title}&type=schilderij`);
         const artworks = response.data.artObjects;  
-        res.json({ artworks }); // Stuur kunstwerken als JSON terug
+        res.json({ artworks });
     } catch (error) {
         console.error('Fout bij het zoeken naar kunstwerken:', error.message);
         res.status(500).json({ error: 'Er is een fout opgetreden bij het zoeken naar de kunstwerken' });
