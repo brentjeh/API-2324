@@ -116,7 +116,9 @@ app.get('/', async (req, res) => {
 }); 
 ```
 
-Ik heb ook een zoek-functie geïmplementeerd. 
+Ik heb ook een zoek-functie geïmplementeerd. Net zoals bij de hoofdroute, definieer ik hier een GET-verzoekshandler maar dan voor de search route ('/search'). Ik doe een HTTP-GET verzoek naar de Rijksmuseum API om kunstwerken te zoeken op basis van de zoekterm die de gebruiker heeft ingevult.
+
+Dit blok code maakt dus een zoekverzoek naar de Rijksmuseum API op basis van de opgegeven zoekterm en stuurt de gevonden kunstwerken als JSON terug naar de client.
 
 ```js
 app.get('/search', async (req, res) => {
