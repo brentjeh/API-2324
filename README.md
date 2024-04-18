@@ -116,3 +116,23 @@ app.get('/', async (req, res) => {
 }); 
 ```
 
+Ik heb ook een zoek-functie geïmplementeerd. 
+
+```js
+app.get('/search', async (req, res) => {
+    try {
+        const title = req.query.title; // Haal de zoekterm op uit de query
+        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&q=${title}&type=schilderij`); // Voeg '&type=schilderij' toe om alleen schilderijen te zoeken
+        const artworks = response.data.artObjects;  
+        res.json({ artworks }); // Stuur kunstwerken als JSON terug
+    } catch (error) {
+        console.error('Fout bij het zoeken naar kunstwerken:', error.message);
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het zoeken naar de kunstwerken' });
+    }
+});
+```
+
+# Week 2
+
+## Weergeven kunstwerken
+
