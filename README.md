@@ -37,7 +37,7 @@ npm init
 
 Dit heeft een package.json bestand voor me aangemaakt.
 
-Wat volgde was een reeds vragen over hoe ik mijn applicatie wilde opzetten. Ik heb de applicatie gewoon een naam en beschrijving gegeven, en heb verder alles leeg gelaten of op een standaard waarde gelaten. Ik open het mapje waarin ik NPM heb geïnitialiseerd in Visual Studio Code en ben daarna Express en EJS gaan installeren aan de hand van de volgende code.
+Wat volgde was een reeds vragen over hoe ik mijn applicatie wilde opzetten. Ik heb de applicatie gewoon een naam en beschrijving gegeven, en heb verder alles leeg gelaten of op een standaard waarde gelaten. Ik open het mapje waarin ik NPM heb geïnitialiseerd in Visual Studio Code en ben daarna Express en EJS gaan installeren aan de hand van de volgende code. Ik heb voor Express en EJS gekozen omdat ik hier al eerder bekend was. Express is een eenvoudig te gebruiken framework voor het bouwen van webapplicaties en API's in Node.js. Door Express en EJS te gebruiken, kon ik gebruik maken van de voordelen van Node.js voor server-side ontwikkeling en tegelijkertijd snel webpagina's renderen met dynamische inhoud. 
 
 ```js
 npm install express ejs
