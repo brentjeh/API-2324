@@ -138,7 +138,7 @@ app.get('/search', async (req, res) => {
 
 ## Weergeven kunstwerken
 
-
+Met de volgende code, die in mijn client-side bestand staat, genaamd index.js. Dit is client-side code, omdat de de code wordt uitgevoerd in de webbrowser van de gebruiker, nadat de webpagina geladen is. Dit wordt direct uitgevoerd op de computer of het apparaat van de gebruiker, in plaats van de server-side code in mijn app.js bestand staat die 
 
 ```js
 async function searchArtworks(query) {
