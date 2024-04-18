@@ -3,8 +3,9 @@
 ## Inhoudsopgave <a name="inhouds-opgave"></a>
 - [Inhoudsopgave](#inhoudsopgave)
 - [Introductie](#introductie)
-- [Server Side Applicatie](#server-side-applicatie)
-- [Fetchen van Data](#fetchen-van-data)
+- [Week 1](#week-1)
+  - [Server Side Applicatie](#server-side-applicatie)
+  - [Fetchen van Data](#fetchen-van-data)
 
 ## Installatie
 
@@ -27,6 +28,8 @@ npm run dev
 In de aankomende weken ga ik me bezig houden met het bouwen van webapplicaties die niet alleen functioneel zijn, maar ook leuk zijn om te gebruiken. Ik ga aan de slag met het maken van een server-side gerenderde applicatie die echt de aandacht trekt van de gebruikers.
 
 Voor mijn opdracht heb ik besloten om een gallerij van schilderijen te maken aan de hand van de Rijksmuseum API. Hierin wil ik een overzichts- en detailpagina maken. 
+
+# Week 1
 
 ## Server Side Applicatie
 Eerst ben ik de server side applicatie gaan opzetten. Ik begon met het initialiseren van NPM. 
@@ -92,17 +95,24 @@ app.get('/about', (req, res) => {
 
 ## Fetchen van Data
 
-Zoals ik eerder heb benoemd heb ik het fetchen van de data met Axios gedaan. Ik heb 
+Zoals ik eerder heb benoemd heb ik het fetchen van de data met Axios gedaan. Ik definieer hier een GET-verzoekshandler voor de hoofdroute ('/') van de applicatie. Als een gebruiker naar de homepagina gaat, wordt deze geactiveerd. Daarna begin ik een try blok, omdat er mogelijk fouten kunnen optreden in de code, en ik deze fouten daarom wil kunnen afhandelen. In dit blok maak ik een HTTP-GET verzoek naar de Rijksmuseum API om kunstwerken op te halen. Await zorgt ervoor dat de code wacht tot het antwoord van de server is ontvangen voordat deze verdergaat. Vervolgens itereer ik door elk schilderij 
+
+Dit hele blok code haalt dus een lijst met kunstwerken op van de Rijksmuseum API en rendert vervolgens de 'index' view met de opgehaalde gegevens.
 
 ```js
-app.get('/artworks', async (req, res) => {
-        try {
-            const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}`);
-            const artworks = response.data.artObjects;
-            res.render('overview', { artworks }); // Geef de kunstwerken door aan de weergavesjabloon
-        } catch (error) {
-            res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van de kunstwerken' });
-        }
-    });  
+app.get('/', async (req, res) => {
+    try {
+        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&type=schilderij&ps=20`);
+        const artworks = response.data.artObjects.map(artwork => ({
+            title: artwork.title,
+            maker: artwork.principalOrFirstMaker,
+            imageUrl: artwork.webImage.url
+        }));
+        res.render('index', { artworks: artworks || [] });
+    } catch (error) {
+        console.error('Fout bij het ophalen van kunstwerken:', error.message);
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van de kunstwerken' });
+    }
+}); 
 ```
 
