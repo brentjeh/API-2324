@@ -138,3 +138,38 @@ app.get('/search', async (req, res) => {
 
 ## Weergeven kunstwerken
 
+
+
+```js
+async function searchArtworks(query) {
+    try {
+        const response = await fetch(`/search?title=${query}`);
+        const data = await response.json();
+        displayArtworks(data.artworks);
+    } catch (error) {
+        console.error('Fout bij het zoeken naar kunstwerken:', error.message);
+    }
+}
+
+function displayArtworks(artworks) {
+    const artworksList = document.getElementById('artworksList');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+    artworksList.innerHTML = '';
+    if (artworks.length === 0) {
+        noResultsMessage.style.display = 'flex';
+    } else {
+        noResultsMessage.style.display = 'none';
+        artworks.forEach(artwork => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <h2>${artwork.title}</h2>
+                <p class="maker-p"><span class="maker">Maker</span> ${artwork.principalOrFirstMaker}</p>
+                <img src="${artwork.webImage.url}" alt="${artwork.title}">
+            `;
+            // Event listener toevoegen om popup te openen bij klikken op het kunstwerk
+            li.addEventListener('click', () => openPopup(artwork));
+            artworksList.appendChild(li);
+        });
+    }
+}
+```
