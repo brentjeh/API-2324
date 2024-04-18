@@ -140,17 +140,9 @@ app.get('/search', async (req, res) => {
 
 Met de volgende code, die in mijn client-side bestand staat, genaamd index.js, weergeef ik elk schilderij, zowel wanneer de gebruiker op de homepagina land (met de functie displayArtworks) als wanneer de gebruiker een schilderij opzoekt (met de functie  searchArtworks). Dit is client-side code, omdat de de code wordt uitgevoerd in de webbrowser van de gebruiker, nadat de webpagina geladen is. Dit wordt direct uitgevoerd op de computer of het apparaat van de gebruiker, in plaats van de server-side code in mijn app.js bestand staat die op de server wordt uitgevoerd voordat de webpagina wordt verzonden naar de client. 
 
-```js
-async function searchArtworks(query) {
-    try {
-        const response = await fetch(`/search?title=${query}`);
-        const data = await response.json();
-        displayArtworks(data.artworks);
-    } catch (error) {
-        console.error('Fout bij het zoeken naar kunstwerken:', error.message);
-    }
-}
 
+
+```js
 function displayArtworks(artworks) {
     const artworksList = document.getElementById('artworksList');
     const noResultsMessage = document.getElementById('noResultsMessage');
@@ -166,10 +158,21 @@ function displayArtworks(artworks) {
                 <p class="maker-p"><span class="maker">Maker</span> ${artwork.principalOrFirstMaker}</p>
                 <img src="${artwork.webImage.url}" alt="${artwork.title}">
             `;
-            // Event listener toevoegen om popup te openen bij klikken op het kunstwerk
             li.addEventListener('click', () => openPopup(artwork));
             artworksList.appendChild(li);
         });
+    }
+}
+```
+
+```js
+async function searchArtworks(query) {
+    try {
+        const response = await fetch(`/search?title=${query}`);
+        const data = await response.json();
+        displayArtworks(data.artworks);
+    } catch (error) {
+        console.error('Fout bij het zoeken naar kunstwerken:', error.message);
     }
 }
 ```
