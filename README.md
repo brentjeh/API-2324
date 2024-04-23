@@ -194,3 +194,32 @@ searchInput.addEventListener('input', (event) => {
 Om de app wat leuker en gebruiksvriendelijker te maken heb ik styling toegevoegd aan de hand van CSS.
 
 # Week 3
+
+## Web Animations API
+
+Om mijn applicatie een stap interessanter te maken heb ik aan de hand van de Web Animations API een aantal animaties toegevoegd, waaronder een scroll tracker op de detail pagina van een schilderij om weer te geven hoe ver in de pagina de gebruiker zich bevindt.
+
+De eerste animatie, de scroll tracker, heb ik op de volgende manier geimplementeerd:
+
+```js
+function setupScrollTracking() {
+    const scrollTracker = document.querySelector('.scroll-tracker');
+    const scrollTrackingTimeline = new ScrollTimeline({
+        source: document.scrollingElement,
+        orientation: 'block',  
+        scrollOffsets: [CSS.percent(0), CSS.percent(100)]
+    });
+
+    scrollTracker.animate(
+        {
+            transform: ['scaleX(0)', 'scaleX(1)']
+        },
+        {
+            duration: 1,
+            timeline: scrollTrackingTimeline,
+        }
+    );
+}
+
+document.addEventListener('DOMContentLoaded', setupScrollTracking);
+```
