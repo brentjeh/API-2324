@@ -141,6 +141,8 @@ Na het fetchen van de data ben ik de EJS sjablonen gaan opzetten, zodat ik de da
 
 ### index.ejs sjabloon
 
+Dit sjabloon dient als de homepage van mijn applicatie.
+
 Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die ik gefetched heb ben gaan zetten. De JavaScript lus gaat door elk schilderij in de artworks array. Ik heb hierin een list item neergezet, waarin elk schilderij wordt weergegeven. Ik geef dan dynamisch de titel en een afbeelding van het schilderij weer aan de hand van <%= artwork.title %> en <%= artwork.imageUrl %>. 
 
 ```html
@@ -156,7 +158,9 @@ Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die
 
 ### artwork.ejs sjabloon
 
-Ik
+Dit sjabloon dient als detailpagina voor mijn applicatie.
+
+Dit sjabloon is vrij gelijk aan hoe ik de index.ejs sjabloon heb opgezet. Het enige verschil is dat ik geen lus die door elk schilderij itereerd hoef te ontwerpen, aangezien dit sjabloon alleen als detail dient voor een schilderij. Dus wanneer iemand op een schilderij in de homepagina klikt, wordt hij of zij gebracht naar deze detailpagina, waarin extra informatie over het schilderij en de schilder staat.
 
 ```html
 <div class="artwork-details">
