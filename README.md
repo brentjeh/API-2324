@@ -188,3 +188,9 @@ searchInput.addEventListener('input', (event) => {
     }
 });
 ```
+
+## Styling
+
+Om de app wat leuker en gebruiksvriendelijker te maken heb ik styling toegevoegd aan de hand van CSS.
+
+# Week 3
