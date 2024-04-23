@@ -138,6 +138,9 @@ app.get('/search', async (req, res) => {
 ## Opzetten EJS sjablonen
 
 Na het fetchen van de data ben ik de EJS sjablonen gaan opzetten, zodat ik de data die ik gefetched heb in de HTML kan gaan zetten. 
+
+### index.ejs sjabloon
+
 Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die ik gefetched heb ben gaan zetten. De JavaScript lus gaat door elk schilderij in de artworks array. Ik heb hierin een list item neergezet, waarin elk schilderij wordt weergegeven. Ik geef dan dynamisch de titel en een afbeelding van het schilderij weer aan de hand van <%= artwork.title %> en <%= artwork.imageUrl %>. 
 
 ```html
@@ -149,6 +152,32 @@ Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die
         </li>
     <% }); %>
 </ul>
+```
+
+### artwork.ejs sjabloon
+
+Ik
+
+```html
+<div class="artwork-details">
+      <div class="header">
+          <img src="<%= artwork.webImage.url %>" alt="<%= artwork.title %>">
+          <h1><%= artwork.title %></h1>
+      </div>
+      <div class="contents">
+          <p><span class="maker">Maker</span><span class="maker content naam"> <%= artwork.principalMakers[0].name %></span></p>
+          <p class="meer-info"><span class="maker info">Geboorteplek</span><span class="maker content"> <%= artwork.principalMakers[0].placeOfBirth %></span></p>
+          <p class="meer-info"><span class="maker info">Geboortedatum</span><span class="maker content"> <%= artwork.principalMakers[0].dateOfBirth %></span></p>
+          <p class="meer-info"><span class="maker info">Sterfplek</span><span class="maker content"> <%= artwork.principalMakers[0].placeOfDeath %></span></p>
+          <p class="meer-info"><span class="maker info">Sterfdatum</span><span class="maker content"> <%= artwork.principalMakers[0].dateOfDeath %></span></p>
+          <p class="meer-info"><span class="maker info">Bezigheid</span><span class="maker content"> <%= artwork.principalMakers[0].occupation %></span></p>
+          <p><span class="beschrijving">Beschrijving</span><span class="content"> <%= artwork.description %> </span></p>
+          <p><span class="jaar-van-creatie">Jaar van creatie</span><span class="content"> <%= artwork.dating.presentingDate %> </span></p>
+          <p><span class="materials">Materialen gebruikt</span><span class="content"> <%= artwork.materials %> </span></p>
+          <p><span class="acquisition">Herkomst</span><span class="content"> <%= artwork.acquisition.creditLine %> </span></p>          
+          <p><span class="collectie">Collectie</span><span class="content"> <%= artwork.objectCollection %> </span></p>
+      </div>
+  </div>
 ```
 
 # Week 2
