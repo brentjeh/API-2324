@@ -135,6 +135,41 @@ app.get('/search', async (req, res) => {
 });
 ```
 
+Als laatst heb ik een route naar de detailpagina gedefinieerd. 
+
+```js
+app.get('/artwork/:id', async (req, res) => {
+    try {
+        let artworkId = req.params.id; 
+        artworkId = artworkId.replace(/^nl-/, '');
+
+        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection/${artworkId}?key=${rijksmuseumApiKey}`);
+        const artworkData = response.data.artObject;
+
+        // Functie om te controleren of een eigenschap leeg is
+        const isEmpty = (property) => !property || property.length === 0;
+
+        // Functie om 'Deze informatie is helaas niet beschikbaar' toe te voegen als de eigenschap leeg is
+        const addNotAvailableText = (property) => isEmpty(property) ? 'Deze informatie is helaas niet beschikbaar' : property;
+
+        // Voeg 'Deze informatie is helaas niet beschikbaar' toe voor verschillende eigenschappen
+        artworkData.principalMakers[0].placeOfBirth = addNotAvailableText(artworkData.principalMakers[0].placeOfBirth);
+        artworkData.principalMakers[0].dateOfBirth = addNotAvailableText(artworkData.principalMakers[0].dateOfBirth);
+        artworkData.principalMakers[0].placeOfDeath = addNotAvailableText(artworkData.principalMakers[0].placeOfDeath);
+        artworkData.principalMakers[0].dateOfDeath = addNotAvailableText(artworkData.principalMakers[0].dateOfDeath);
+        artworkData.principalMakers[0].occupation = addNotAvailableText(artworkData.principalMakers[0].occupation);
+        artworkData.materials = addNotAvailableText(artworkData.materials);
+        artworkData.acquisition.creditLine = addNotAvailableText(artworkData.acquisition.creditLine);
+        artworkData.objectCollection = addNotAvailableText(artworkData.objectCollection);
+
+        res.render('artwork', { artwork: artworkData });
+    } catch (error) {
+        console.error('Fout bij het ophalen van het kunstwerk:', error.message);
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van het kunstwerk' });
+    }
+});
+```
+
 ## Opzetten EJS sjablonen
 
 Na het fetchen van de data ben ik de EJS sjablonen gaan opzetten, zodat ik de data die ik gefetched heb in de HTML kan gaan zetten. 
