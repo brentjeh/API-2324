@@ -5,6 +5,7 @@
 - [Introductie](#introductie)
 - [Week 1](#week-1)
   - [Server Side Applicatie](#server-side-applicatie)
+  - [Opzetten EJS sjablonen](#opzetten-ejs-sjablonen)
   - [Fetchen van Data](#fetchen-van-data)
 
 ## Installatie
