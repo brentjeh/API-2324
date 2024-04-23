@@ -134,6 +134,22 @@ app.get('/search', async (req, res) => {
 });
 ```
 
+## Opzetten EJS sjablonen
+
+Na het fetchen van de data ben ik de EJS sjablonen gaan opzetten, zodat ik de data die ik gefetched heb in de HTML kan gaan zetten. 
+Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die ik gefetched heb ben gaan zetten. De JavaScript lus gaat door elk schilderij in de artworks array, en gee
+
+```html
+<ul id="artworksList" class="artworks-list">
+            <% artworks.forEach(artwork => { %>
+                <li class="artwork-item">
+                    <h2><%= artwork.title %></h2>
+                    <img src="<%= artwork.imageUrl %>" alt="<%= artwork.title %>">
+                </li>
+            <% }); %>
+        </ul>
+```
+
 # Week 2
 
 ## Weergeven kunstwerken
@@ -197,9 +213,10 @@ Om de app wat leuker en gebruiksvriendelijker te maken heb ik styling toegevoegd
 
 ## Web Animations API
 
-Om mijn applicatie een stap interessanter te maken heb ik aan de hand van de Web Animations API een aantal animaties toegevoegd, waaronder een scroll tracker op de detail pagina van een schilderij om weer te geven hoe ver in de pagina de gebruiker zich bevindt.
+Om mijn applicatie een stap interessanter te maken heb ik aan de hand van de Web Animations API en de ScrollTimeline API een aantal animaties toegevoegd, waaronder een scroll tracker op de detail pagina van een schilderij om weer te geven hoe ver in de pagina de gebruiker zich bevindt.
 
-De eerste animatie, de scroll tracker, heb ik op de volgende manier geimplementeerd:
+De eerste animatie, de scroll tracker, heb ik op de volgende manier geimplementeerd.
+Ik heb een functie aangemaakt die een animatie aanstuurt op basis van de scrollpositie van de gebruiker. Ik selecteer een div die ik heb aangemaakt in 'artwork.ejs' om deze van onzichtbaar te maken (de gebruiker zit bovenin op de pagina) naar volledig zichtbaar te maken (de gebruiker is volledig door de pagina gescrollt). Dit doe ik aan de hand van de ScrollTimeline API, die het mogelijk maakt om te reageren op het scrollen van de gebruiker en dus animaties hieraan kan verbinden. 'source: document.scrollingElement' geeft aan dat de animatie werkt als je over het hele document scrollt. orientation: 'block' geeft aan dat het scrollen verticaal werkt. scrollOffsets: [CSS.percent(0), CSS.percent(100)] geeft aan dat de animatie helemaal bovenaan de pagina begint, en onderaan de pagina eindigt. Dit zorgt er dus voor dat de 'Scroll Tracker' div de volledige width krijgt zodra de gebruiker tot het einde van de pagina is gescrollt. 
 
 ```js
 function setupScrollTracking() {
