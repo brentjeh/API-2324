@@ -138,17 +138,17 @@ app.get('/search', async (req, res) => {
 ## Opzetten EJS sjablonen
 
 Na het fetchen van de data ben ik de EJS sjablonen gaan opzetten, zodat ik de data die ik gefetched heb in de HTML kan gaan zetten. 
-Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die ik gefetched heb ben gaan zetten. De JavaScript lus gaat door elk schilderij in de artworks array, en gee
+Ik heb eerst een unordered list aangemaakt waarin ik een aantal schilderijen die ik gefetched heb ben gaan zetten. De JavaScript lus gaat door elk schilderij in de artworks array. Ik heb hierin een list item neergezet, waarin elk schilderij wordt weergegeven. Ik geef dan dynamisch de titel en een afbeelding van het schilderij weer aan de hand van <%= artwork.title %> en <%= artwork.imageUrl %>. 
 
 ```html
 <ul id="artworksList" class="artworks-list">
-            <% artworks.forEach(artwork => { %>
-                <li class="artwork-item">
-                    <h2><%= artwork.title %></h2>
-                    <img src="<%= artwork.imageUrl %>" alt="<%= artwork.title %>">
-                </li>
-            <% }); %>
-        </ul>
+    <% artworks.forEach(artwork => { %>
+        <li class="artwork-item">
+            <h2><%= artwork.title %></h2>
+            <img src="<%= artwork.imageUrl %>" alt="<%= artwork.title %>">
+        </li>
+    <% }); %>
+</ul>
 ```
 
 # Week 2
