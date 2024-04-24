@@ -319,3 +319,9 @@ document.addEventListener('DOMContentLoaded', setupScrollTracking);
 # Week 4
 
 ## READ ME bijwerken
+
+Ik ben deze week vooral bezig geweest met het bijwerken van mijn READ.ME aan de hand van de code die ik de afgelopen werken heb gebouwd.
+
+## Applicatie online zetten
+
+Ik ben als laatst de applicatie online gaan zetten.
