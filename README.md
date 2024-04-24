@@ -13,7 +13,7 @@
 - [Week 3](#week-3)
   - [Web Animations API](#web-animations-api)
 - [Week 4](#week-4)
-  - [READ.ME bijwerken](#read.me-bijwerken)
+  - [READ.ME bijwerken](#read-me-bijwerken)
 
 ## Installatie
 
