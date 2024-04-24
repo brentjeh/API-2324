@@ -14,6 +14,8 @@
   - [Web Animations API](#web-animations-api)
 - [Week 4](#week-4)
   - [READ.ME bijwerken](#read-me-bijwerken)
+  - [Applicatie responsive maken](#applicatie-responsive-maken)
+  - [Applicatie online zetten](#applicatie-online-zetten)
 
 ## Installatie
 
@@ -328,4 +330,10 @@ Met media queries heb ik de applicatie ook responsive gemaakt.
 
 ## Applicatie online zetten
 
-Ik ben als laatst de applicatie online gaan zetten. Dit heb ik aan de hand van Render gedaan, 
+Ik ben als laatst de applicatie online gaan zetten. Dit heb ik aan de hand van Render gedaan, waar je webapplicaties gratis op kan laten hosten.
+
+Dit is de link naar mijn applicatie:
+
+https://api-live-brentjeh.onrender.com/
+
+# Wat me helaas niet is gelukt
