@@ -322,6 +322,10 @@ document.addEventListener('DOMContentLoaded', setupScrollTracking);
 
 Ik ben deze week vooral bezig geweest met het bijwerken van mijn READ.ME aan de hand van de code die ik de afgelopen werken heb gebouwd.
 
+## Applicatie responsive maken
+
+Met media queries heb ik de applicatie ook responsive gemaakt.
+
 ## Applicatie online zetten
 
-Ik ben als laatst de applicatie online gaan zetten.
+Ik ben als laatst de applicatie online gaan zetten. Dit heb ik aan de hand van Render gedaan, 
