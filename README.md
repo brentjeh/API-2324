@@ -236,8 +236,6 @@ Met de volgende code, die in mijn client-side bestand staat, genaamd index.js, w
 
 De 'displayArtworks' functie is verantwoordelijk voor het weergeven van een lijst met kunstwerken op de webpagina op basis van de gegevens die worden doorgegeven aan de functie. artworksList haalt het ul element op waarin de schilderijen worden weergegeven en noResultsMessage haalt een bericht op dat wordt weergegeven wanneer de gebruiker naar een schilderij zoekt dat niet in de database staat. artworksList wordt geleegd door de innerHTML leeg te maken, wat er voor zorgt dat eerdere zoekresultaten worden verwijderd voordat er nieuwe resultaten worden toegevoegd. Wanneer de gebruiker iets opzoekt, en het resultaat matched niet met een van de schilderijen, wordt er een lege array teruggestuurd naar de client, waardoor de 'displayArtworks' functie controleert of de array leeg is. De voorwaarde 'if (artworks.length === 0)' zal dan kloppen, en het bericht 'Geen zoekresultaten gevonden' wordt dan weergegeven. Als de gebruiker iets opzoekt, en het resultaat matched wel met een van de schilderijen, wordt het bericht 'Geen zoekresultaten gevonden' verborgen en wordt er voor elk kunstwerk in de array een li element aangemaakt en aan de ul artworksList toegevoegd met daarin informatie over het schilderij.
 
-De 'searchArtworks' functie is verantwoordelijk voor het ophalen van zoekresultaten op basis van een opgegeven zoekopdracht. Binnen deze functie wordt er een HTTP verzoek naar de server gedaan met de zoekopdracht als query. Als de zoekopdracht overeenkomt met een schilderij, wordt de functie 'displayArtworks' aangeroepen met de schilderijen die zijn opgehaald uit de server, die vervolgens de schilderijen weergeeft die overeenkomen met de query. 
-
 ```js
 function displayArtworks(artworks) {
     const artworksList = document.getElementById('artworksList');
@@ -260,6 +258,9 @@ function displayArtworks(artworks) {
     }
 }
 ```
+
+De 'searchArtworks' functie is verantwoordelijk voor het ophalen van zoekresultaten op basis van een opgegeven zoekopdracht. Binnen deze functie wordt er een HTTP verzoek naar de server gedaan met de zoekopdracht als query. Als de zoekopdracht overeenkomt met een schilderij, wordt de functie 'displayArtworks' aangeroepen met de schilderijen die zijn opgehaald uit de server, die vervolgens de schilderijen weergeeft die overeenkomen met de query. 
+
 
 ```js
 async function searchArtworks(query) {
