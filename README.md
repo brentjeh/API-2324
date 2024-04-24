@@ -7,6 +7,8 @@
   - [Server Side Applicatie](#server-side-applicatie)
   - [Opzetten EJS sjablonen](#opzetten-ejs-sjablonen)
   - [Fetchen van Data](#fetchen-van-data)
+- [Week 2](#week-2)
+  - [Weergeven kunstwerken](#weergeven-kunstwerken)
 
 ## Installatie
 
@@ -137,6 +139,8 @@ app.get('/search', async (req, res) => {
 
 Als laatst heb ik een route naar de detailpagina gedefinieerd. 
 
+De route reageert op HTTP GET-verzoeken naar het pad '/artwork/:id'. 'id' representeert de ID van het kunstwerk. Daarna wordt er een HTTP GET-verzoek gemaakt naar de Rijksmuseum API, die aan de hand van de id van het schilderij meer informatie over het schilderij ophaalt. Ik vervang 'nl-' met een lege string, omdat voor een of andere reden, er elke keer in de id 'nl-' voor de id geplaatst werd, wat er voor zorgde dat erg een informatie over het schilderij werd opgehaald. Ik ga door elk eigenschap van het kunstwerk om te controleren of er informatie beschikbaar is voor een specifiek eigenschap. Zo nee, geef ik een bericht weer dat aangeeft dat de informatie helaas niet bescikbaar is. Als er wel informatie beschikbaar is, wordt deze dynamisch in het sjabloon gerenderd.
+
 ```js
 app.get('/artwork/:id', async (req, res) => {
     try {
@@ -146,13 +150,10 @@ app.get('/artwork/:id', async (req, res) => {
         const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection/${artworkId}?key=${rijksmuseumApiKey}`);
         const artworkData = response.data.artObject;
 
-        // Functie om te controleren of een eigenschap leeg is
         const isEmpty = (property) => !property || property.length === 0;
 
-        // Functie om 'Deze informatie is helaas niet beschikbaar' toe te voegen als de eigenschap leeg is
         const addNotAvailableText = (property) => isEmpty(property) ? 'Deze informatie is helaas niet beschikbaar' : property;
 
-        // Voeg 'Deze informatie is helaas niet beschikbaar' toe voor verschillende eigenschappen
         artworkData.principalMakers[0].placeOfBirth = addNotAvailableText(artworkData.principalMakers[0].placeOfBirth);
         artworkData.principalMakers[0].dateOfBirth = addNotAvailableText(artworkData.principalMakers[0].dateOfBirth);
         artworkData.principalMakers[0].placeOfDeath = addNotAvailableText(artworkData.principalMakers[0].placeOfDeath);
@@ -309,3 +310,7 @@ function setupScrollTracking() {
 
 document.addEventListener('DOMContentLoaded', setupScrollTracking);
 ```
+
+# Week 4
+
+## READ.ME bijwerken
