@@ -16,6 +16,7 @@
   - [READ.ME bijwerken](#read-me-bijwerken)
   - [Applicatie responsive maken](#applicatie-responsive-maken)
   - [Applicatie online zetten](#applicatie-online-zetten)
+- [Wat we helaas niet is gelukt](#wat-me-helaas-niet-is-gelukt)
 
 ## Installatie
 
