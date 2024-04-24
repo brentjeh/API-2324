@@ -338,3 +338,7 @@ Dit is de link naar mijn applicatie:
 https://api-live-brentjeh.onrender.com/
 
 # Wat me helaas niet is gelukt
+
+Ik wilde ook nog twee andere API's toevoegen, de Geolocation API en de Geocoding API van Google. Het idee was dat ik aan de hand van de locatie van de gebruiker (met de Geolocation API) en de productie plaats van een schilderij een filter wilde toevoegen. Wanneer de gebruiker op een knop drukt, worden alleen schilderijen weergegeven die binnen een straal van 50 kilometer van de gebruiker zijn geproduceerd. Aan de hand van de Geocoding API zou ik dan de productieplaats omzetten naar coordinaten, waarmee ik vervolgens de afstand kon berekenen tussen de gebruiker en de productie plaats van het schilderij.
+
+Frustrerend genoeg was dit niet gelukt, en omdat ik niet veel tijd meer over had, besloot ik het voor een andere keer te bewaren.
